@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>PeakCut - giriş</title>
+<style>body{font-family:system-ui,Segoe UI,sans-serif;max-width:640px;margin:60px auto;padding:0 16px;line-height:1.6}</style>
+</head>
+<body>
+<h2 id="m">Bilgisayarındaki PeakCut programına yönlendiriliyorsun...</h2>
+<p>Bu sayfa hiçbir bilgiyi kaydetmez; girişten dönen tek kullanımlık kodu sadece bu bilgisayardaki programa iletir.</p>
+<script>
+// Sadece sabit yerel adrese yönlendirir; başka hiçbir yere bir şey göndermez.
+(function () {
+  var q = window.location.search || "";
+  if (q.indexOf("code=") === -1 && q.indexOf("error") === -1) {
+    document.getElementById("m").textContent = "Giriş bilgisi yok. Bu sayfayı doğrudan açmana gerek yok.";
+    return;
+  }
+  window.location.replace("http://localhost:53682/callback/" + q);
+})();
+</script>
+</body>
+</html>
